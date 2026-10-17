@@ -1,0 +1,1 @@
+{"name":"loanessy-chatgpt-app","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node index.js"},"dependencies":{"@modelcontextprotocol/sdk":"^1.32.1","zod":"^3.25.76"}}
