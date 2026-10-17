@@ -56,6 +56,15 @@ function createLoanEssyServer() {
 }
 
 const httpServer = createServer(async (req, res) => {
+  if (
+    new URL(req.url, "http://localhost").pathname ===
+      "/.well-known/openai-apps-challenge" &&
+    req.method === "GET"
+  ) {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end(process.env.OPENAI_APPS_CHALLENGE_TOKEN || "");
+    return;
+  }
   if (new URL(req.url, "http://localhost").pathname === "/health" && req.method === "GET") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("LoanEssy MCP server is running");
