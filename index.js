@@ -56,7 +56,7 @@ function createLoanEssyServer() {
 }
 
 const httpServer = createServer(async (req, res) => {
-  if (req.url === "/health" && req.method === "GET") {
+  if (new URL(req.url, "http://localhost").pathname === "/health" && req.method === "GET") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("LoanEssy MCP server is running");
     return;
