@@ -62,8 +62,7 @@ const httpServer = createServer(async (req, res) => {
     return;
   }
 
-  if (req.url !== "/mcp") {
-    res.writeHead(404);
+if (new URL(req.url, "http://localhost").pathname !== "/mcp") {    res.writeHead(404);
     res.end("Not found");
     return;
   }
