@@ -99,7 +99,7 @@ const httpServer = createServer(async (req, res) => {
   }
 });
 
-httpServer.listen(3000, "127.0.0.1", () => {
+httpServer.listen(process.env.PORT || 3000, "0.0.0.0", () => {
   console.log("LoanEssy MCP server running at http://localhost:3000/mcp");
   console.log("Health check: http://localhost:3000/health");
 });
