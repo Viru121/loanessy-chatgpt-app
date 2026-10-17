@@ -16,6 +16,11 @@ function createLoanEssyServer() {
       title: "Calculate Loan Payment",
       description:
         "Estimate a US loan's monthly payment, total payments, and total interest.",
+      annotations: {
+  readOnlyHint: true,
+  destructiveHint: false,
+  openWorldHint: false
+},
       inputSchema: {
         amount: z.number().positive().describe("Loan amount in USD"),
         apr: z.number().min(0).max(100).describe("Annual APR percentage"),
